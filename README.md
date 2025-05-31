@@ -1,133 +1,144 @@
 # Spring Boot Blog REST API
 
-This repository contains a REST API for a blog built using Spring Boot. With endpoints for creating, updating, and retrieving blog posts and users, and organized code and clear documentation, it's a useful resource for developers looking to learn about REST API development with Spring Boot.
+A RESTful API for a blog platform built with Spring Boot. This project demonstrates best practices in REST API development, including authentication, CRUD operations for posts and comments, and clear code organization.
 
-# Table of Contents
+---
 
+## Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
 - [Endpoints](#endpoints)
-    - [Auth](#auth)
-    - [Post](#post)
-    - [Comment](#comment)
+  - [Auth](#auth)
+  - [Post](#post)
+  - [Comment](#comment)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Project Structure](#project-structure)
 - [Contributing](#contributing)
 - [License](#license)
 
-# Endpoints
+---
 
-This REST API provides the following endpoints:
+## Features
 
-## Auth
+- User registration and authentication (JWT-based)
+- Create, read, update, and delete blog posts
+- Comment on posts
+- RESTful API design
+- Exception handling and validation
 
-1. ### Signin
+---
 
-    This endpoint is used to authenticate users by allowing them to sign in using their email and password.
-    
-    `POST /api/v1/auth/signin`
+## Tech Stack
 
-2. ### Signup
+- Java 17+
+- Spring Boot
+- Spring Data JPA
+- Spring Security
+- H2 Database (for development)
+- Maven
 
-    This endpoint is used to register new users by allowing them to sign up with their email and password.
-    
-    `/api/v1/auth/signup`
+---
 
-## Post
+## Endpoints
 
-1. ### Get all Posts
+### Auth
 
-    This endpoint is used to retrieve a list of all posts.
-    
-    `GET /api/v1/posts`
+- **POST** `/api/v1/auth/signin` — Sign in with email and password
+- **POST** `/api/v1/auth/signup` — Register a new user
 
-2. ### Get Post by Id
+### Post
 
-    This endpoint is used to retrieve a specific post by its ID.
-    
-    `GET /api/api/posts/{postId}`
+- **GET** `/api/v1/posts` — Get all posts
+- **GET** `/api/v1/posts/{postId}` — Get post by ID
+- **POST** `/api/v1/posts` — Create a new post
+- **PUT** `/api/v1/posts/{postId}` — Update a post
+- **DELETE** `/api/v1/posts/{postId}` — Delete a post
 
-3. ### Create a Post
+### Comment
 
-    This endpoint is used to create new post.
-    
-    `POST /api/v1/posts`
+- **GET** `/api/v1/posts/{postId}/comments` — Get all comments for a post
+- **GET** `/api/v1/posts/{postId}/comments/{commentId}` — Get a specific comment
+- **POST** `/api/v1/posts/{postId}/comments` — Add a comment to a post
+- **PUT** `/api/v1/posts/{postId}/comments/{commentId}` — Update a comment
+- **DELETE** `/api/v1/posts/{postId}/comments/{commentId}` — Delete a comment
 
-4. ### Update a Post
+---
 
-    This endpoint is used to update a specific post by its ID.
-    
-    `PUT /api/v1/posts/{postId}`
+## Installation
 
-5. ### Delete a Post
+1. **Install Java:**  
+   Download and install Java from the [official website](https://www.java.com/en/download/).
 
-    This endpoint is used to delete a specific post by its ID.
-    
-    `DELETE /api/v1/posts/{postId}`
+2. **Install an IDE:**  
+   - [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)  
+   - [Visual Studio Code](https://code.visualstudio.com/Download)
 
-## Comment
+3. **Clone the repository:**
+   ```sh
+   git clone https://github.com/TanveerNakade/spring-boot-blog-rest-api-main
+   ```
 
-1. ### Get Comments by PostId
+4. **Navigate to the project directory:**
+   ```sh
+   cd spring-boot-blog-rest-api-main
+   ```
 
-    This endpoint is used to retrieve all comments for a specific post.
-    
-    `GET /api/v1/posts/{postId}/comments`
+---
 
-2. ### Get Comment by PostId
+## Usage
 
-    This endpoint is used to retrieve a specific comment for a specific post.
-    
-    `GET /api/v1/posts/{postId}/comments/{commentId}`
+1. **Run the application:**
+   - In your IDE, open the project and run the `SpringBootBlogRestApiApplication` main class.
+   - Or use Maven from the terminal:
+     ```sh
+     mvn spring-boot:run
+     ```
 
-3. ### Create a Comment
+2. **Access the API:**  
+   The API will be available at `http://localhost:8080/`.  
+   Use tools like [Postman](https://www.postman.com/) or `curl` to interact with the endpoints.
 
-    This endpoint is used to create a new comment for a specific post.
-    
-    `POST /api/v1/posts/{postId}/comments`
+---
 
-4. ### Update a Comment
+## Project Structure
 
-    This endpoint is used to update a specific comment for a specific post.
-    
-    `PUT /api/v1/posts/{postId}/comments/{commentId}`
+```
+spring-boot-blog-rest-api-main
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com
+│   │   │       └── example
+│   │   │           └── blog
+│   │   │               ├── controller
+│   │   │               ├── model
+│   │   │               ├── repository
+│   │   │               ├── service
+│   │   │               └── SpringBootBlogRestApiApplication.java
+│   │   └── resources
+│   │       ├── application.properties
+│   │       └── static
+│   └── test
+│       └── java
+│           └── com
+│               └── example
+│                   └── blog
+├── pom.xml
+└── README.md
+```
 
-5. ### Delete a Comment
+---
 
-    This endpoint is used to delete a specific comment for a specific post.
-    
-    `DELETE /api/v1/posts/{postId}/comments/{commentId}`
+## Contributing
 
-# Installation
+Contributions are welcome!  
+Fork the repository, make your changes, and submit a pull request.
 
-1. To run the projects, you'll need to have Java installed on your machine. You can download Java from the [official website](https://www.java.com/en/download/).
+---
 
-2. Install an Integrated Development Environment (IDE) such as IntelliJ  or Visual Studio Code.
+## License
 
-   - To install IntelliJ IDEA, follow the instructions on the [official website](https://www.jetbrains.com/idea/download/)
-
-   - To install Visual Studio Code, follow the instructions on the [official website](https://code.visualstudio.com/Download).
-
-# Usage
-
-To run the application, please follow these steps:
-
-1. Clone the repository using the following command:
-
-   `git clone https://github.com/TanveerNakade/spring-boot-blog-rest-api-main`
-
-2. Navigate into the project directory using the following command:
-
-   `cd spring-boot-blog-rest-api`
-
-3. You can simply run the project in the IntelliJ IDEA by clicking the "run" icon or you can run the application using the following command:
-
-   `mvn spring-boot:run`
-
-4. After the application is running, you can interact with the API by making HTTP requests to the endpoints listed above using tools like curl or Postman.
-
-# Contributing
-
-Feel free to contribute to this repository by improving the existing codebase or adding new features. Simply fork the repository, make your changes, and create a pull request. I'll be happy to review and merge your changes.
-
-# License
-
-This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
