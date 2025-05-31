@@ -111,7 +111,7 @@ To run the application, please follow these steps:
 
 1. Clone the repository using the following command:
 
-   `git clone https://github.com/aamirxshaikh/spring-boot-blog-rest-api.git`
+   `git clone https://github.com/TanveerNakade/spring-boot-blog-rest-api-main`
 
 2. Navigate into the project directory using the following command:
 
